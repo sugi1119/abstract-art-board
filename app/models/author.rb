@@ -25,4 +25,5 @@ class Author < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :books
+  validates :name, presence: true
 end

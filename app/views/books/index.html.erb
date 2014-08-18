@@ -1,22 +1,30 @@
 <h1>book index page </h1>
 
-<div class="display_index">
-<% @books.each do |book| %>
-<div class ="book_display">
-  <ul>
-    <li class="no_bullet"><%= image_tag(book.image, :class => 'thumb') %></li>
-    <li><%= link_to(book.title, book) %></li>
-    <li><%= link_to(book.author.name, book.author) if book.author %></li>
-    <li><%= book.year %></li>
-    <li><%= book.page %></li>
-    <li><%= book.genre %></li>
-    <li><%= book.isbn %></li>
-    <li><%= link_to('Edit', edit_book_path(book))%></li>
-    <li><%= link_to('Delete', book, :data => {:confirm => 'Are you sure to delete the book from database?'}) %></li>
-  </ul>
-</div>
+<!-- create story button -->
+<div><%= link_to('Create', new_book_path)%></div>
+
+<!-- book lists read-only -->
+<div>
+<% if @books.count == 0 %>
+  <p>Currently, no book in the book shelf</p>
+<% else %>
+  <% @books.each do |book| %>
+    <ul>
+      <li><%= link_to(book.title, book) %></li>
+      <li><%= book.author.name %></li>
+      <li>check if its reading</li>
+    <!-- book list with edit / delete options -->
+        <% if @book.author.id %>
+        <!-- this is test only  -->
+        <%= @book.author.name %>
+          <li><%= link_to('Edit', edit_book_path(@book))%></li>
+          <li><%= link_to('Delete', book, :data => {:confirm => 'Are you sure to delete the book from database?'}) %></li>
+        <% end %>
+    </ul>
+  <% end %>
 <% end %>
 </div>
+
 
 
 

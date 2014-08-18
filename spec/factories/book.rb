@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :book do
+    association :author
     title  "Example title"
-    author "Example"
   end
 end
