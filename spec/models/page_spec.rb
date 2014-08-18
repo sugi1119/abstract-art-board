@@ -12,3 +12,15 @@
 #  updated_at  :datetime
 #
 
+require 'spec_helper'
+
+describe Page do
+  it "has a valid factory" do
+    expect(create(:page)).to be_valid
+  end
+
+  it { should belong_to(:book) }
+
+
+
+end

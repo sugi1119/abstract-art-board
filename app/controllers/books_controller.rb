@@ -1,12 +1,13 @@
-class BooksContoroller < ApplicationController
+class BooksController < ApplicationController
+  before_action :authenticate_author!
 
   def index
     @books = Book.all
 
-    respond_to do |format|
-      format.html {}
-      format.json { render :json => @books}
-    end
+    # respond_to do |format|
+    #   format.html {}
+    #   format.json { render :json => @books}
+    # end
   end
 
   def new
@@ -23,29 +24,47 @@ class BooksContoroller < ApplicationController
     end
   end
 
-  def update
+  def edit
+    @book = Book.find params[:id]
+
 
   end
 
-  def delete
+  def show
+    @book = Book.find params[:id]
+
+
+  end
+
+  def update
+    book = Book.find params[:id]
+    book.update book_params
+
+    redirect_to book
+  end
+
+  def destroy
+    book = Book.find params[:id]
+    book.destroy
+
+    flash[:notice] = "The book is now deleted. "
+    redirect_to book
   end
 
   private
-  def book_params
-    params.require(:book).permit(:title, :author_id)
-  end
+    def book_params
+      params.require(:book).permit(:title, :author_id)
+    end
 
 end
 
+             # book_index GET    /book(.:format)                  book#index
+             #           POST   /book(.:format)                  book#create
+             #      new_book GET    /book/new(.:format)              book#new
+             #     edit_book GET    /book/:id/edit(.:format)         book#edit
+             #          book GET    /book/:id(.:format)              book#show
+             #               PATCH  /book/:id(.:format)              book#update
+             #               PUT    /book/:id(.:format)              book#update
+             #               DELETE /book/:id(.:format)              book#destroy
 
 
-
-
-# book_index_path GET /book(.:format) book#index
-# POST  /book(.:format) book#create
-# new_book_path GET /book/new(.:format) book#new
-# edit_book_path  GET /book/:id/edit(.:format)  book#edit
-# book_path GET /book/:id(.:format) book#show
-# PATCH /book/:id(.:format) book#update
-# PUT /book/:id(.:format) book#update
-# DELETE  /book/:id(.:format) book#destroy

@@ -1,1 +1,22 @@
 <h1>book index page </h1>
+
+<div class="display_index">
+<% @books.each do |book| %>
+<div class ="book_display">
+  <ul>
+    <li class="no_bullet"><%= image_tag(book.image, :class => 'thumb') %></li>
+    <li><%= link_to(book.title, book) %></li>
+    <li><%= link_to(book.author.name, book.author) if book.author %></li>
+    <li><%= book.year %></li>
+    <li><%= book.page %></li>
+    <li><%= book.genre %></li>
+    <li><%= book.isbn %></li>
+    <li><%= link_to('Edit', edit_book_path(book))%></li>
+    <li><%= link_to('Delete', book, :data => {:confirm => 'Are you sure to delete the book from database?'}) %></li>
+  </ul>
+</div>
+<% end %>
+</div>
+
+
+

@@ -15,12 +15,7 @@
         <%= link_to "Sign up", new_author_registration_path %> or <%= link_to "Sign in", new_author_session_path %>
       <% end %>
   </div>
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+
 <%= yield %>
 
 </body>

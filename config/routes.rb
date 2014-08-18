@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :authors
 
-  resources :dashboard, :book
+  resources :dashboard, :books, :pages
 
   resources :home
   root to: 'home#index'
+
+
+
 end
