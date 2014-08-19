@@ -43,10 +43,10 @@ group :development, :test do
 end
 
 group :development do
-
-   gem 'pry-rails'
-   gem 'better_errors'
-   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate'
 end
 
 # Use ActiveModel has_secure_password

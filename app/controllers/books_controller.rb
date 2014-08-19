@@ -12,13 +12,13 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @book.author_id = current_author.id
 
   end
 
   def create
     @book = Book.new book_params
-    @current_author_id = @book.author_id
-
+    @book.author_id = current_author.id
 
     if @book.save
       redirect_to @book
@@ -48,11 +48,12 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    # raise "error"
     book = Book.find params[:id]
     book.destroy
 
     flash[:notice] = "The book is now deleted. "
-    redirect_to book
+    redirect_to books_path
   end
 
   private

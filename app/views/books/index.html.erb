@@ -1,4 +1,4 @@
-<h1>book index page </h1>
+<h1>Book index page </h1>
 
 <!-- create story button -->
 <div><%= link_to('Create', new_book_path)%></div>
@@ -10,15 +10,12 @@
 <% else %>
   <% @books.each do |book| %>
     <ul>
-      <li><%= link_to(book.title, book) %></li>
-      <li><%= book.author.name %></li>
-      <li>check if its reading</li>
-    <!-- book list with edit / delete options -->
-        <% if @book.author.id %>
-        <!-- this is test only  -->
-        <%= @book.author.name %>
-          <li><%= link_to('Edit', edit_book_path(@book))%></li>
-          <li><%= link_to('Delete', book, :data => {:confirm => 'Are you sure to delete the book from database?'}) %></li>
+      <li>Ttile: <%= link_to(book.title, book) %></li>
+      <li>Author name: <%= book.author.name %></li>
+    <!-- book list with edit / delete options only for correct author-->
+        <% if book.author.id == current_author.id %>
+          <li><%= link_to('Edit', edit_book_path(book))%></li>
+          <li><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% end %>
     </ul>
   <% end %>

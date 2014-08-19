@@ -1,7 +1,12 @@
 <h2>show page</h2>
 
-<h2><%= @book.title %></h2>
-<ul><li><%= link_to('Edit title', edit_book_path(@book)) %></li>
-  <li><%= link_to('Delete book', book, :data => {:confirm => 'Are you sure to delete the book from database?' }) %></li>
-  <li><%= link_to('Continue', edit_page_path(@book.id) %></li>
+<h2>Title: <%= @book.title %></h2>
+<h2>Author: <%= @book.author.name %></h2>
+
+<ul>
+  <li><%= link_to 'Back to bookshelf', books_path  %></li>
+  <li><%= link_to('Edit title', edit_book_path(@book.id)) %></li>
+  <li><%= link_to('Delete title', @book, method: :delete, data: { confirm: 'Are you sure?' }) %></li>
+  <li><%= link_to('Continue to story part', edit_page_path(@book.id)) %></li>
 </ul>
+

@@ -4,7 +4,8 @@
     <%= f.text_field :title, :autofocus => true %>
   </p>
 
-  <%= hidden_field_tag 'book[author_id]', @book.author_id %>
+  <p>Author: <%= @book.author.name %></p>
+  <% hidden_field_tag 'book[author_id]', @book.author_id %>
 
   <%= f.submit %>
 
