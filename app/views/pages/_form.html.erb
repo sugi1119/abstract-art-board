@@ -1,0 +1,23 @@
+<canvas resize="true" id="myCanvas" style="background:black"></canvas>
+<!-- Load external PaperScript and associate it with myCanvas -->
+<script type="text/paperscript" src="/assets/image.pjs" canvas="myCanvas"></script>
+
+<%= form_for [@book, @page] do |f| %>
+
+<%# content_for :javascript_includes do %>
+  <%#= javascript_include_tag "image.js" %>
+<div class="image">
+    <%f.label :image, "Image"%>
+    <% f.text_area :image, :include_blank => true,  :class => "form-control" %>
+  </div>
+<%# end %>
+
+<div class="story">
+    <%= f.label :text, "Story"%>
+    <%= f.text_area :text, :include_blank => true,  :class => "form-control", :rows => "3" %>
+  </div>
+    <%= f.submit "Save Story"%>
+<% end %>
+
+
+

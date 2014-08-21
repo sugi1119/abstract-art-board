@@ -5,7 +5,7 @@
   </p>
 
   <p>Author: <%= @book.author.name %></p>
-  <% hidden_field_tag 'book[author_id]', @book.author_id %>
+  <%# hidden_field_tag 'book.', @book.author_id %>
 
   <%= f.submit %>
 

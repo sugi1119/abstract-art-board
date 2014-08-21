@@ -1,0 +1,14 @@
+<h2>show page</h2>
+
+<h2>Title: <%= @page.book.title %></h2>
+<h2>Author: <%= @page.book.author.name %></h2>
+
+<p>Image: <%= @page.image %></p>
+<p>Story: <%= @page.story %></p>
+
+<ul>
+  <li><%= link_to 'Back to bookshelf', books_path  %></li>
+  <li><%= link_to('Edit page', edit_page_path(@page.id)) %></li>
+  <li><%= link_to('Delete page', @page, method: :delete, data: { confirm: 'Are you sure?' }) %></li>
+  <li><%#= link_to('Continue to story part', new_page_path(@book.id)) %></li>
+</ul>

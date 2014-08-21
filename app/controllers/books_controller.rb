@@ -14,6 +14,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @book.author_id = current_author.id
 
+
   end
 
   def create
@@ -37,18 +38,17 @@ class BooksController < ApplicationController
     @book = Book.find params[:id]
 
 
+    # raise 'error'
   end
 
   def update
     book = Book.find params[:id]
     book.update book_params
 
-
     redirect_to book
   end
 
   def destroy
-    # raise "error"
     book = Book.find params[:id]
     book.destroy
 
