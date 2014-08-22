@@ -19,7 +19,6 @@ class PagesController < ApplicationController
   end
 
   def create
-    raise 'error'
     @page = Page.new page_params
     # @book = Book.find params[:book_id]
     # @page.book = @book
@@ -46,7 +45,13 @@ class PagesController < ApplicationController
     page = Page.find params[:id]
     page.upate page_params
     raise 'error'
-    redirect_to page
+
+   respond_to do |format|
+      format.html { }
+      format.json { render json: @pages }
+    end
+
+    redirect_to book_page_path
   end
 
   def destroy

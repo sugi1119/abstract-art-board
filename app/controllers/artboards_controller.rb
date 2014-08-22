@@ -1,64 +1,64 @@
-class BooksController < ApplicationController
+class ArtboardsController < ApplicationController
   before_action :authenticate_author!
 
   def index
-    @books = Book.all
+    @artboards = Artboard.all
 
     respond_to do |format|
       format.html { }
-      format.json { render :json => @books }
+      format.json { render :json => @artboards }
     end
   end
 
   def new
-    @book = Book.new
-    @book.author_id = current_author.id
+    @artboard = Artboard.new
+    @artboard.author_id = current_author.id
 
 
   end
 
   def create
-    @book = Book.new book_params
-    @book.author_id = current_author.id
+    @artboard = Artboard.new book_params
+    @artboard.author_id = current_author.id
 
-    if @book.save
-      redirect_to @book
+    if @artboard.save
+      redirect_to @artboard
     else
       render :new
     end
   end
 
   def edit
-    @book = Book.find params[:id]
+    @artboard = Artboard.find params[:id]
 
 
   end
 
   def show
-    @book = Book.find params[:id]
+    @artboard = Artboard.find params[:id]
 
 
     # raise 'error'
   end
 
   def update
-    book = Book.find params[:id]
-    book.update book_params
+    artboard = Artboard.find params[:id]
+    artboard.update artboard_params
 
-    redirect_to book
+    redirect_to artboard
   end
 
   def destroy
-    book = Book.find params[:id]
-    book.destroy
+    artboard = Artboard.find params[:id]
+    artboard.destroy
 
-    flash[:notice] = "The book is now deleted. "
-    redirect_to books_path
+    flash[:notice] = "The art is now deleted. "
+    redirect_to artboards_path
   end
 
   private
-    def book_params
-      params.require(:book).permit(:title, :author_id)
+    def artboard_params
+      params.require(:artboard).permit(:title, :author_id, :image, :story)
     end
 
 end

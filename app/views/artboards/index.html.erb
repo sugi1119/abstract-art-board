@@ -1,0 +1,27 @@
+<h1 class="center">Create Your Abstract Art Board!</h1>
+
+<!-- create story button -->
+<div><%= link_to('Create', new_artboard_path)%></div>
+
+<!-- book lists read-only -->
+<div>
+<% if @artboards.count == 0 %>
+  <p>Currently, no art in the gallery.</p>
+<% else %>
+  <% @artboards.each do |book| %>
+    <ul>
+      <li>Ttile: <%= link_to(artboard.title, artboard) %></li>
+      <li>Author name: <%= artboard.author.name %></li>
+    <!-- book list with edit / delete options only for correct author-->
+        <% if artboard.author.id == current_author.id %>
+          <li><%= link_to('Edit', edit_artboard_path(artboard))%></li>
+          <li><%= link_to 'Delete', artboard, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+
+
+
+

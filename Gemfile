@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+
 group :test do
   gem 'faker'
 end
@@ -48,6 +50,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate'
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

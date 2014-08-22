@@ -1,6 +1,8 @@
 FactoryGirl.define do
-  factory :book do
+  factory :artboard do
     association :author
     title  "Example title"
+    image "string string"
+    story "funny story"
   end
 end

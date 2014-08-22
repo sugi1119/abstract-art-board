@@ -1,0 +1,23 @@
+<div id="position">
+  <%= form_for @artboard do |f| %>
+  <div id="image_title">
+    <%= f.label :title, "Image Title"%>
+          <%= f.text_area :title, :include_blank => true, :class => "imageTitle" %>
+  </div>
+  <div class="image">
+    <canvas id="myCanvas" style="-webkit-user-select: none; touch-action: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 350px; height: 450px; background:#302B27; data-paper-scope="1"></canvas>
+  </div>
+  <!-- Load external PaperScript and associate it with myCanvas -->
+  <script type="text/paperscript" src="/assets/image.pjs" canvas="myCanvas"></script>
+
+
+  <div id="storypart">
+      <%= f.label :story, "Write your story about this image", :class => "story_title"%>
+      <%= f.text_area :story, :include_blank => true, :class => "story_size" %>
+  </div>
+
+   <div id="authorpart">
+      <p>Author name: <%= @artboard.author.name %></p>
+  </div>
+  <% end %>
+</div>

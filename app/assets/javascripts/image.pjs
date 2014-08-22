@@ -1,5 +1,5 @@
 var values = {
-  paths: 3,
+  paths: 10,
   minPoints: 5,
   maxPoints: 10,
   minRadius: 50,

@@ -1,0 +1,21 @@
+<div id = "su_form">
+
+  <h2 class = "center">Sign in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class = "center"><%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true , :size =>"50", :class => "field_height"%></div>
+
+    <div class = "center"><%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off", :size =>"50", :class => "field_height" %></div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class = "center"><%= f.check_box :remember_me , :size =>"50", :class => "field_height"%> <%= f.label :remember_me , :size =>"50", :class => "field_height"%></div>
+    <% end -%>
+
+    <div class = "center"><%= f.submit "Sign in", :class => "button"%></div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>

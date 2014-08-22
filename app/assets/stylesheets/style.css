@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+
+body{
+   font-family: 'Gloria Hallelujah', cursive;
+   width: 960px;
+   height: 600px;
+   /*border: 1px solid black;*/
+   margin: 0 auto;
+   color: #4E4C4E;
+   background-color: #FFFEBA;
+   background_image: url("/app/assets/images/background.png");
+}
+
+
+h1{
+    font-weight: 60px;
+
+}
+
+h2 {
+    font-size: 40px;
+    margin-top: -20px;
+}
+
+#su_form{
+  width: 600px;
+  margin: 0 auto;
+
+}
+
+.center {
+  width:600px;
+  margin: 0 auto;
+
+}
+
+.field_height{
+  height: 50px;
+  font-size: 15px;
+}
+
+.button{
+  color: #bbbbbb;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+#center_art{
+ width: 580px;
+ margin: 0 auto;
+}
+
+#position{
+  width: 752px;
+  /*border: 1px solid blue;*/
+  margin: 0 auto;
+}
+
+#image_title{
+  margin-left: 150px;
+
+}
+
+
+.image{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+#story_text{
+  text-align: center;
+  /*border: 1px solid pink;*/
+}
+#storypart{
+  height: 480px;
+  width: 360px;
+  /*border:1px solid red;*/
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 370px;
+  margin-top: -460px;
+}
+.story_title{
+
+  /*border: 1px solid brown;*/
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+.story_size{
+  height: 400px;
+  width: 350px;
+  /*margin-top: 10px;*/
+}
+#authorpart{
+  margin-left: 300px;
+}
+
+
+
+

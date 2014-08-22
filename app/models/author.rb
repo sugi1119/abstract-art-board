@@ -24,6 +24,6 @@ class Author < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :books
+  has_many :artboards
   validates :name, presence: true
 end

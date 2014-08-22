@@ -40,6 +40,6 @@ describe Author do
     have(1).errors_on(:password)
   end
 
-  it { should have_many (:books)}
+  it { should have_many (:artboards)}
 
 end
